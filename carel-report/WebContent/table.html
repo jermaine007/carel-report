@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>统计表格</title>
+
+<meta name="description" content="Common Buttons &amp; Icons" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+      <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+<!-- page specific plugin styles -->
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+<!-- ace styles -->
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+<!--[if lte IE 8]>
+      <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+<!-- inline styles related to this page -->
+<!-- ace settings handler -->
+
+<script src="assets/js/ace-extra.min.js"></script>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+body {
+	background: #ffffff;
+}
+
+#main-container {
+	width: 960px;
+	margin: 20px auto;
+	overflow: hidden;
+}
+
+table {
+	margin: 20px auto;
+	width: 80%;
+	
+	background-color: #E3E9F4;
+	color: #fff;
+	font: 16px bold;
+	line-height: 2;
+	text-align: center;
+}
+
+table th {
+	text-align: center;
+	background-color: #8394B7;
+	border:2px solid #fff;
+}
+
+table td {
+	color: #000;
+	border-top:2px solid #fff;
+	border-bottom:3px solid #fff;
+}
+</style>
+</head>
+
+<body>
+
+	<div id="main-container"></div>
+	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/typeahead-bs2.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<!-- ace scripts -->
+
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+
+	<!-- inline scripts related to this page -->
+	<script src="assets/js/bootbox.min.js"></script>
+	<script src="scripts/jquery.cookie.js"></script>
+	<script type="text/javascript" src="scripts/report.js"></script>
+	<script type="text/javascript" src="scripts/template.js"></script>
+	<script type="text/javascript">
+		(function() {
+			var render, params = report.utils.queryString;
+			if (params.isEmpty) {
+				report.ui.alert('缺少查询日期，无法继续进行操作');
+				return;
+			}
+
+			$.ajax({
+				type : "GET",
+				url : 'templates/table.tpl',
+				dataType : "text",
+				async : false,
+				success : function(data) {
+					render = template.render(data);
+				},
+				error : function(data) {
+					report.ui.alert('服务器内部错误<br/>' + data.responseText);
+				}
+
+			})
+
+			$.ajax({
+				type : "POST",
+				url : "PageReport",
+				data : params,
+				dataType : "json",
+				success : function(result) {
+					if (!result.success) {
+						report.ui.alert(result.message);
+					} else {
+						if (result.data.length == 0) {
+							report.ui.alert('数据为空');
+							return;
+						}
+						var html = render(result);
+						$('#main-container').html(html);
+					}
+				},
+				error : function(data) {
+					report.ui.alert('服务器内部错误，请查看日志<br/>' + data.responseText);
+				}
+			});
+
+		})();
+	</script>
+</body>
+</html>

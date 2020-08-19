@@ -1,0 +1,386 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>不良产品</title>
+
+<meta name="description" content="Common Buttons &amp; Icons" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+      <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+<!-- page specific plugin styles -->
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+<!-- ace styles -->
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css">
+<!--[if lte IE 8]>
+      <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+<!-- inline styles related to this page -->
+<!-- ace settings handler -->
+
+<script src="assets/js/ace-extra.min.js"></script>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+body {
+	background: #ffffff;
+}
+
+#main-container {
+	min-width:900px;
+	max-width:960px;
+	margin-left:220px;
+	margin-top:20px;
+	overflow: hidden;
+}
+
+#content button {
+	margin-top: 5px;
+}
+
+#content .btn {
+	font-size: 18px;
+}
+
+h3.smaller {
+	font-size: 24px;
+	font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+<div class="main-container-inner">
+		<div class="sidebar" id="sidebar">
+			<script type="text/javascript">
+				try {
+					ace.settings.check('sidebar', 'fixed')
+				} catch (e) {
+				}
+			</script>
+
+			<!-- #sidebar-shortcuts -->
+
+			<ul class="nav nav-list">
+				<li><a> <i class="icon-list-alt"></i> <span
+						class="menu-text">PTH Line</span>
+				</a></li>
+
+				<li><a> <i class="icon-list-alt"></i> <span
+						class="menu-text">SMD Line</span>
+				</a></li>
+				<li><a> <i class="icon-list-alt"></i> <span
+						class="menu-text">FCT Line</span>
+				</a></li>
+				<li><a> <i class="icon-list-alt"></i> <span
+						class="menu-text">HUM Line</span>
+				</a></li>
+			</ul>
+			<!-- /.nav-list -->
+
+
+
+			<script type="text/javascript">
+				try {
+					ace.settings.check('sidebar', 'collapsed')
+				} catch (e) {
+				}
+			</script>
+		</div>
+
+		<div id="main-container">
+		<div class="page-header">
+			<h1>不良类型录入</h1>
+		</div>
+		<div id="content">
+			<div style="display:none">
+				<h3 class="header smaller lighter green">PTH Line</h3>
+
+				<p>
+					<button class="btn btn-yellow">ICT NTF<b>(0)</b></button>
+					<button class="btn btn-primary">SMT 短路 / SMT Short<b>(0)</b></button>
+					<button class="btn btn-info">SMT 空焊 / SMT missing<b>(0)</b></button>
+					<button class="btn btn-success">SMT 缺件<b>(0)</b></button>
+					<button class="btn btn-danger">SMT 错件<b>(0)</b></button>
+					<button class="btn btn-inverse">SMT 位置不准<b>(0)</b></button>
+					<button class="btn btn-pink">SMT 材料不良<b>(0)</b></button>
+					<button class="btn btn-purple">波峰焊短路<b>(0)</b></button>
+					<button class="btn btn-yellow">波峰焊空焊<b>(0)</b></button>
+					<button class="btn btn-primary">漏插件<b>(0)</b></button>
+					<button class="btn btn-info">插错件<b>(0)</b></button>
+					<button class="btn btn-success">插件材料不良<b>(0)</b></button>
+					<button class="btn btn-yellow">零件掉、零件歪以及不露脚<b>(0)</b></button>
+				</p>
+				<p>
+					<input type="text" placeholder="备注"
+						class="form-control ui-autocomplete-input" autocomplete="on">
+				</p>
+			</div>
+			<div style="display:none">
+				<h3 class="header smaller lighter green">SMD Line</h3>
+
+				<p>
+					<button class="btn btn-primary">SMT 飞件<b>(0)</b></button>
+					<button class="btn btn-info">SMT 偏移<b>(0)</b></button>
+					<button class="btn btn-success">SMT 短路<b>(0)</b></button>
+					<button class="btn btn-danger">SMT 缺件<b>(0)</b></button>
+					<button class="btn btn-inverse">SMT 空焊<b>(0)</b></button>
+					<button class="btn btn-pink">SMT 极性反<b>(0)</b></button>
+					<button class="btn btn-purple">SMT 立碑<b>(0)</b></button>
+					<button class="btn btn-yellow">SMT 翻面<b>(0)</b></button>
+				</p>
+				<p>
+					<input type="text" placeholder="备注"
+						class="form-control ui-autocomplete-input" autocomplete="on">
+				</p>
+			</div>
+			<div style="display:none">
+				<h3 class="header smaller lighter green">FCT Line</h3>
+
+				<p>
+<!-- 					<button class="btn btn-info">误测<b>(0)</b></button> -->
+<!-- 					<button class="btn btn-success">显示的产品测试不良次数<b>(0)</b></button> -->
+<!-- 					<button class="btn btn-danger">产品不良现象<b>(0)</b></button> -->
+					
+					<button class="btn btn-yellow">ICT NTF<b>(0)</b></button>
+					<button class="btn btn-primary">SMT 短路 / SMT Short<b>(0)</b></button>
+					<button class="btn btn-info">SMT 空焊 / SMT missing<b>(0)</b></button>
+					<button class="btn btn-success">SMT 缺件<b>(0)</b></button>
+					<button class="btn btn-danger">SMT 错件<b>(0)</b></button>
+					<button class="btn btn-inverse">SMT 位置不准<b>(0)</b></button>
+					<button class="btn btn-pink">SMT 材料不良<b>(0)</b></button>
+					<button class="btn btn-purple">波峰焊短路<b>(0)</b></button>
+					<button class="btn btn-yellow">波峰焊空焊<b>(0)</b></button>
+					<button class="btn btn-primary">漏插件<b>(0)</b></button>
+					<button class="btn btn-info">插错件<b>(0)</b></button>
+					<button class="btn btn-success">插件材料不良<b>(0)</b></button>
+					<button class="btn btn-yellow">零件掉、零件歪以及不露脚<b>(0)</b></button>
+					<button class="btn btn-info">屏不良<b>(0)</b></button>
+					<button class="btn btn-success">产品不良<b>(0)</b></button>
+				</p>
+				<p>
+					<input type="text" placeholder="备注"
+						class="form-control ui-autocomplete-input" autocomplete="on">
+				</p>
+			</div>
+			
+			<div style="display:none">
+				<h3 class="header smaller lighter green">HUM Line</h3>
+
+				<p>
+					<button class="btn btn-info">组装不良<b>(0)</b></button>
+					<button class="btn btn-success">接线不良<b>(0)</b></button>
+					<button class="btn btn-danger">切管不良<b>(0)</b></button>
+					<button class="btn btn-purple">敲电极不良<b>(0)</b></button>
+					<button class="btn btn-inverse">焊接不良<b>(0)</b></button>
+					<button class="btn btn-pink">压合不良<b>(0)</b></button>
+				</p>
+				<p>
+					<input type="text" placeholder="备注"
+						class="form-control ui-autocomplete-input" autocomplete="on">
+				</p>
+			</div>
+		</div>
+	</div>
+</div>	
+	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		if ("ontouchend" in document)
+			document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+							+ "<" + "/script>");
+	</script>
+	<script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/typeahead-bs2.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<!-- ace scripts -->
+
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+
+	<!-- inline scripts related to this page -->
+	<script src="assets/js/bootbox.min.js"></script>
+	<script src="scripts/jquery.cookie.js"></script>
+	<script type="text/javascript" src="scripts/report.js"></script>
+	<script type="text/javascript">
+		(function() {
+			/**
+			 *获取url参数
+			 */
+			var params = report.utils.queryString;
+			if (params.isEmpty) {
+				report.ui.alert('缺少必要的参数，无法继续进行操作');
+				$('#main-container').find('button').each(function(i, e) {
+					e.disabled = true;
+				});
+				return;
+			}
+			
+			/**
+			*控制显示
+			*/
+			$('#sidebar').find('a').each(function(i,e){
+				var _e = $(e);
+				_e.click(function(){
+					var _line, text = _e.find('span').text();
+					
+					$('#content').find('h3').each(function(i,e){
+						var _ = $(e),d =  _.text()==text ? 'block' :  'none';
+						if(d == 'block'){
+							_line = text.substr(0,3);
+						}
+						_.parent().css('display',d);
+					});
+					
+					var _params = $.extend({'line':_line},params);
+					/*
+					* 备注
+					*/
+					$.ajax({
+						type:'POST',
+						url:'Remark',
+						data: _params,
+						dataType:'json',
+						success:function(result){
+							if(result.success){
+								var data = result.data,
+									length = data.length,
+									sources = {'PTH':[],'SMD':[],'FCT':[],'HUM':[]};
+								
+								for(var i=0;i<length;i++){
+									sources[data[i].tag].push(data[i].value);
+								}
+								
+								$('#content').find('input.ui-autocomplete-input').each(function(i,e){
+									var _e = $(e),
+										line = _e.parent().prev().prev().text().substr(0,3);
+									
+									_e.autocomplete({
+										minLength: 0,
+										scrollHeight:220,
+										source:sources[line]
+									}).focus(function(e) {
+									    $(_e).autocomplete('search', '');
+									});
+								});
+							}
+							
+						},
+						error:function(data){
+							report.ui.alert('服务器内部错误，请查看日志<br/>'+data.responseText);
+						}
+					})
+				});
+			});
+			
+			/**
+			*检测插入工单
+			*/
+			$.ajax({
+				type : "POST",
+				url : "ProductOrder",
+				data : params,
+				dataType : "json",
+				success : function(result) {
+					if (!result.success) {
+						report.ui.alert(result.message);
+					}
+				},
+				error:function(data){
+					report.ui.alert('服务器内部错误，请查看日志<br/>'+data.responseText);
+				}
+			});
+			
+			
+			// 初始化点击次数
+			$.ajax({
+				type:'POST',
+				url:'FailureProductSum',
+				data: params,
+				dataType: 'json',
+				success: function(result){
+					if(result.success){
+						if(result.data.length > 0){
+							var data = result.data,
+							    length =  data.length,
+							    kv = {};
+							
+							for(var i = 0; i < length; i++){
+								kv[data[i].failureMode]= data[i].count;
+							}
+							
+							
+							$('#content').find('button.btn').each(function(i,e){
+								var failureMode = $(e).text().substr(0,$(e).text().indexOf('('));
+								if(kv.hasOwnProperty(failureMode)){
+									$(e).find('b').text('('+ kv[failureMode] +')');
+								}
+							});
+							
+						}
+					}
+				},
+				error: function(data){
+					report.ui.alert('服务器内部错误,请查看日志<br />' + data.responseText);
+				}
+			})
+			
+			
+			// 执行插入操作
+			$('#content').find('button.btn').each(function(i,e){
+				$(e).click(function(){
+					var line = $(e).parent().prev().text().substr(0,3),
+					    failureMode = $(e).text().substr(0,$(e).text().indexOf('(')),
+					    remark = $(e).parent().next().find('input').val(),
+					    data =  $.extend({'line':line,'failureMode':failureMode,'remark':remark},params);
+
+					$.ajax({
+						type : "POST",
+						url : "FailureProduct",
+						data : data,
+						dataType : "json",
+						success : function(result) {
+							report.ui.alert(result.message);
+							var _e = $(e).parent().next().find('input'),
+							    b = $(e).find('b').eq(0),
+							    c = b.text(),
+							    r = _e.val();
+							b.text('('+ (report.utils.parse(c) + 1) +')')
+							if(r!==''){
+								var source = _e.autocomplete('option','source');
+								if(source.indexOf(r) == -1){
+									source.push(r);
+								}
+							}
+							_e.val('');
+						},
+						error:function(data){
+							report.ui.alert('服务器内部错误，请查看日志<br/>'+data.responseText);
+						}
+					});
+				});
+			});
+		})();
+	</script>
+</body>
+</html>

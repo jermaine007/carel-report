@@ -1,0 +1,196 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>导出报表</title>
+
+<meta name="description" content="Common Buttons &amp; Icons" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- basic styles -->
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+      <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+<!-- page specific plugin styles -->
+<!-- fonts -->
+
+<link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+<!-- ace styles -->
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css">
+
+<!--[if lte IE 8]>
+      <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+<!-- inline styles related to this page -->
+<!-- ace settings handler -->
+
+<script src="assets/js/ace-extra.min.js"></script>
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+<style type="text/css">
+body {
+	background: #ffffff;
+}
+
+#main-container {
+	width: 960px;
+	margin: 20px auto;
+	overflow: hidden;
+}
+</style>
+</head>
+
+<body>
+
+	<div id="main-container">
+
+		<div class="page-header">
+			<h1>
+				报表 <small> <i class="icon-double-angle-right"></i> 请选择日期导出
+				</small>
+			</h1>
+		</div>
+		<div class="space"></div>
+		
+		<form target="_blank" action="ExportReport" method="POST">
+		    <div class="row">
+			    <div class="col-xs-2">
+				 	<label class="control-label  no-padding-right" for="datepicker1"> 请选择线别:</label>
+				</div>
+				<div class="input-group input-group-sm col-xs-4">
+				    <select id="lineOpt" name="line">
+				    	<option value="0">HUM Line</option>
+				    	<option value="1" selected>其他线别</option>
+				    </select>
+				</div>
+			</div>
+		    <div class="space"></div>
+			<div class="row">
+			    <div class="col-xs-2">
+				 	<label class="control-label  no-padding-right" for="datepicker1">  开始:</label>
+				</div>
+				<div class="input-group input-group-sm col-xs-4">
+					<input type="text" id="datepicker1" class="form-control" /> <span
+						class="input-group-addon"> <i class="icon-calendar"></i></span> <input
+						id="startDate" type="hidden" name="startDate"></input>
+
+				</div>
+
+				<div class="input-group input-group-sm col-xs-4">
+					<button id="submitBtn" class="btn btn-primary"
+						style="margin-left: 10px;" type="submit">
+						<i class="icon-search"></i> 导出报表
+					</button>
+
+				</div>
+
+
+			</div>
+			<div class="space"></div>
+			<div class="row">
+				<div class="col-xs-2">
+				 	<label class="control-label " for="datepicker2"> 结束:</label>
+				</div>
+				<div class="input-group input-group-sm col-xs-4">
+					
+					<input type="text" id="datepicker2" class="form-control" /> <span
+						class="input-group-addon"> <i class="icon-calendar"></i></span> <input
+						id="endDate" type="hidden" name="endDate"></input>
+				</div>
+				<div class="input-group input-group-sm col-xs-4">
+					<a id="viewBtn" class="btn btn-primary" style="margin-left: 10px;">
+						<i class="icon-search"></i> 查看网页
+					</a>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript">
+		if ("ontouchend" in document)
+			document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+							+ "<" + "/script>");
+	</script>
+	<script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/typeahead-bs2.min.js"></script>
+
+	<!-- page specific plugin scripts -->
+	<!-- ace scripts -->
+
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+
+	<!-- inline scripts related to this page -->
+	<script src="assets/js/bootbox.min.js"></script>
+	<script src="scripts/jquery.cookie.js"></script>
+	<script type="text/javascript" src="scripts/report.js"></script>
+	<script type="text/javascript">
+		(function() {
+			// date picker
+			var currentDate = $.datepicker.formatDate('yy-mm-dd',new Date());
+			var dts = [];
+			
+			$('#lineOpt').change(function(){
+				var v = $('#lineOpt').val(),d = v == '0' ? 'none':'inline-block';
+				$('#viewBtn').css('display', d);
+			})
+			
+			for(var i = 0; i<2 ; i++){
+				var id = '#datepicker'+ (i+ 1);
+				var dt = $(id).datepicker({
+					showOtherMonths: true,
+					selectOtherMonths: true,
+					showButtonPanel: true,			
+					changeMonth: true,
+					changeYear: true,
+					dateFormat:'yy-mm-dd',
+					defaultDate:currentDate,
+					beforeShow: function() {
+						//change button colors
+						var datepicker = $(this).datepicker( "widget" );
+						setTimeout(function(){
+							var buttons = datepicker.find('.ui-datepicker-buttonpane').find('button');
+							buttons.eq(0).addClass('btn btn-xs');
+							buttons.eq(1).addClass('btn btn-xs btn-success');
+							buttons.wrapInner('<span class="bigger-110" />');
+						}, 0);
+					}
+				});
+				dt.val(currentDate);
+				dts.push(dt);
+			}
+			
+			$('#submitBtn').click(function(){
+				var startDate = dts[0].val().replace(/-/g,''),
+					endDate = dts[1].val().replace(/-/g,'');
+				$('#startDate').val(startDate);
+				$('#endDate').val(endDate);
+			});
+	
+			$('#viewBtn').click(function(){
+				var startDate = dts[0].val().replace(/-/g,''),
+					endDate = dts[1].val().replace(/-/g,'');
+				var href = 'table.html?startDate='+startDate+'&endDate='+endDate;
+				$('#viewBtn').attr('href',href).attr('target','_blank');
+			});
+			
+		})();
+	</script>
+</body>
+</html>
